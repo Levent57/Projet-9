@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rxu-gR-4Te">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rxu-gR-4Te">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,10 +90,11 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="wpS-Ip-D8M">
-                                <rect key="frame" x="177" y="326" width="20" height="20"/>
+                                <rect key="frame" x="177.66666666666666" y="326" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.35499775410000001" green="0.41768753530000002" blue="0.50197285410000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="L4g-GM-fBI" firstAttribute="trailing" secondItem="9A4-os-bPB" secondAttribute="trailing" constant="62" id="8lC-49-o2l"/>
                             <constraint firstItem="wpS-Ip-D8M" firstAttribute="centerY" secondItem="Q2G-Q1-OwG" secondAttribute="centerY" id="9Tj-Rp-6NI"/>
@@ -108,6 +109,9 @@
                             <constraint firstItem="kRd-Ax-6sX" firstAttribute="top" secondItem="Ojc-rd-uaP" secondAttribute="bottom" constant="90" id="zKW-ug-gkU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L4g-GM-fBI"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="r8h-h6-of4" appends="YES" id="rT0-S5-edU"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Currency" id="yXc-pS-Tcm"/>
                     <connections>
@@ -120,6 +124,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e1p-Yb-isD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="r8h-h6-of4">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="hnn-JH-RAd" id="M2X-cu-Lh1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1036" y="652.62368815592208"/>
         </scene>

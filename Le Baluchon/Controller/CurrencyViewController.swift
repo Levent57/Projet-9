@@ -16,20 +16,21 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var EuroCurrencyLabel: UILabel!
     @IBOutlet weak var targetCurrencyLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    let currencyService = CurrencyService()
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        currencyTextField.resignFirstResponder()
+    }
     
     @IBAction func changeAction(){
         ActivityController.activityController(activityIndicator: activityIndicator, button: ConvertButton, showActivityIndicator: true)
         change()
-
     }
+    
+    let currencyService = CurrencyService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         ActivityController.activityController(activityIndicator: activityIndicator, button: ConvertButton, showActivityIndicator: false)
-        currencyService.getCurrecy { (success, currency) in
-            print(success)
-        }
 
     }
     
@@ -42,7 +43,7 @@ class CurrencyViewController: UIViewController {
         currencyResultLabel.text = ""
     }
     
-    func change(){
+    private func change(){
         currencyService.getCurrecy { (success, currency) in
              ActivityController.activityController(activityIndicator: self.activityIndicator, button: self.ConvertButton, showActivityIndicator: false)
             if success, let currency = currency {
@@ -67,7 +68,7 @@ class CurrencyViewController: UIViewController {
             return
         }
 
-        guard let rateTarget = currency.rate?.usd else {
+        guard let rateTarget = currency.rates?.usd else {
             showErrorPopup(title: "Taux indisponible", message: "Le taux n'a pu être obtenu du serveur")
             return
         }
@@ -75,8 +76,6 @@ class CurrencyViewController: UIViewController {
         let currencyResult = Currency.calculateCurrency(baseCurrency: baseCurrencyRate, rateTarget: rateTarget)
 
         currencyResultLabel.text = String(format: "%.3f", currencyResult)
-        EuroCurrencyLabel.text = currency.baseCurrency
-        targetCurrencyLabel.text = "USD"
     }
     
 }

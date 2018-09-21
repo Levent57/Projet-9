@@ -9,21 +9,19 @@
 import Foundation
 
 struct Currency: Decodable {
-//    let rates: [String: Double]
-    let baseCurrency: String?
-    let rate: Rate?
 
-        enum CodingKeys: String, CodingKey {
+    let baseCurrency: String?
+    let rates: Rate?
+
+       private enum CodingKeys: String, CodingKey {
             case baseCurrency = "base"
-            case rate
+            case rates
         }
-    
 }
 
 extension Currency {
     
     static func calculateCurrency(baseCurrency: Double , rateTarget: Double) -> Double{
-        print(rateTarget)
         let currency = baseCurrency * rateTarget
         
         return currency
@@ -32,10 +30,8 @@ extension Currency {
 
 struct Rate: Decodable {
     let usd: Double
-    let eur: Double
     
-    enum CodingKeys: String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         case usd = "USD"
-        case eur = "EUR"
     }
 }

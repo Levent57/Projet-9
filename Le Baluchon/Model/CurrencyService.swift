@@ -16,16 +16,10 @@ class CurrencyService {
 
     private var session: URLSession
     
-    
     func getCurrecy(callback: @escaping (Bool, Currency?) -> Void){
         
-//        typealias FixerURL = Constants.Currency
-//        let urlString = FixerURL.baseURL + FixerURL.accesKey + FixerURL.key + FixerURL.symbole + "usd"
-//        let url = URL(string: urlString)!
-//
         let currencyURL = URL (string: "http://data.fixer.io/api/latest?access_key=c4408dceeb3f717d443bd62d537d6246&base=EUR&symbols=USD")!
         var task: URLSessionDataTask?
-
         task?.cancel()
         
         task = session.dataTask(with: currencyURL) { (data, response, error) in
@@ -54,15 +48,5 @@ class CurrencyService {
         }
         task?.resume()
     }
-    
-//    private static func creatCurrencyRequest() -> URLRequest{
-//        var request = URLRequest(url: URL(string: Constants.Currency.baseURL + Constants.Currency.accesKey)!)
-//        request.httpMethod = Constants.Currency.method
-//
-//        let body = Constants.Currency.symbole + Constants.Currency.suffix
-//        request.httpBody = body.data(using: .utf8)
-//
-//        return request
-//    }
 
 }
