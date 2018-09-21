@@ -18,11 +18,10 @@
 		2BE998512140A5DC00B9180B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE9984F2140A5DC00B9180B /* Main.storyboard */; };
 		2BE998532140A5DD00B9180B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE998522140A5DD00B9180B /* Assets.xcassets */; };
 		2BE998562140A5DD00B9180B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE998542140A5DD00B9180B /* LaunchScreen.storyboard */; };
-		2BE9987E2140A6D100B9180B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2BE9987D2140A6D000B9180B /* Default-568h@2x.png */; };
 		2BFC1EB521547480003B8760 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC1EB421547480003B8760 /* FakeResponseData.swift */; };
 		2BFC1EB7215474AA003B8760 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC1EB6215474AA003B8760 /* URLSessionFake.swift */; };
 		2BFC1EBA215474F5003B8760 /* Currency.json in Resources */ = {isa = PBXBuildFile; fileRef = 2BFC1EB9215474F5003B8760 /* Currency.json */; };
-		2BFC1EBC21547551003B8760 /* ServiceCurrencyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC1EBB21547551003B8760 /* ServiceCurrencyTest.swift */; };
+		2BFC1EBC21547551003B8760 /* CurrencyServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFC1EBB21547551003B8760 /* CurrencyServiceTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,13 +48,12 @@
 		2BE998522140A5DD00B9180B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BE998552140A5DD00B9180B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2BE998572140A5DD00B9180B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BE9987D2140A6D000B9180B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2BFC1EAA21547444003B8760 /* LeBaluchonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BFC1EAE21547445003B8760 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BFC1EB421547480003B8760 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		2BFC1EB6215474AA003B8760 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		2BFC1EB9215474F5003B8760 /* Currency.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Currency.json; sourceTree = "<group>"; };
-		2BFC1EBB21547551003B8760 /* ServiceCurrencyTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCurrencyTest.swift; sourceTree = "<group>"; };
+		2BFC1EBB21547551003B8760 /* CurrencyServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyServiceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,6 @@
 		2BE9983F2140A5DC00B9180B = {
 			isa = PBXGroup;
 			children = (
-				2BE9987D2140A6D000B9180B /* Default-568h@2x.png */,
 				2BE9984A2140A5DC00B9180B /* Le Baluchon */,
 				2BFC1EAB21547444003B8760 /* LeBaluchonTests */,
 				2BE998492140A5DC00B9180B /* Products */,
@@ -169,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				2BFC1EB9215474F5003B8760 /* Currency.json */,
-				2BFC1EBB21547551003B8760 /* ServiceCurrencyTest.swift */,
+				2BFC1EBB21547551003B8760 /* CurrencyServiceTest.swift */,
 			);
 			path = CurrencyTests;
 			sourceTree = "<group>";
@@ -258,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BE998562140A5DD00B9180B /* LaunchScreen.storyboard in Resources */,
-				2BE9987E2140A6D100B9180B /* Default-568h@2x.png in Resources */,
 				2BE998532140A5DD00B9180B /* Assets.xcassets in Resources */,
 				2BE998512140A5DC00B9180B /* Main.storyboard in Resources */,
 			);
@@ -296,7 +292,7 @@
 			files = (
 				2BFC1EB521547480003B8760 /* FakeResponseData.swift in Sources */,
 				2BFC1EB7215474AA003B8760 /* URLSessionFake.swift in Sources */,
-				2BFC1EBC21547551003B8760 /* ServiceCurrencyTest.swift in Sources */,
+				2BFC1EBC21547551003B8760 /* CurrencyServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Le Baluchon/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -466,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Le Baluchon/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

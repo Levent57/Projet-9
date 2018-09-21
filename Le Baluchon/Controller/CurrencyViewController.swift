@@ -62,7 +62,7 @@ class CurrencyViewController: UIViewController {
             return
         }
 
-        guard let baseCurrencyRate = Double(inputCurrency) else {
+        guard let baseCurrency = Double(inputCurrency) else {
             showErrorPopup(title: "Données Erronées", message: "Merci de bien vouloir entrer un nombre pour obtenir la devise !")
            clear()
             return
@@ -73,7 +73,7 @@ class CurrencyViewController: UIViewController {
             return
         }
 
-        let currencyResult = Currency.calculateCurrency(baseCurrency: baseCurrencyRate, rateTarget: rateTarget)
+        let currencyResult = Currency.calculateCurrency(baseCurrency: baseCurrency, rateTarget: rateTarget)
 
         currencyResultLabel.text = String(format: "%.3f", currencyResult)
     }
