@@ -13,10 +13,11 @@ struct Currency: Decodable {
     let baseCurrency: String?
     let rates: Rate?
 
-       private enum CodingKeys: String, CodingKey {
-            case baseCurrency = "base"
-            case rates
-        }
+    private enum CodingKeys: String, CodingKey {
+        case baseCurrency = "base"
+        case rates
+    }
+
 }
 
 extension Currency {

@@ -23,7 +23,15 @@ class FakeResponseData {
         return data
     }
     
-    static let currencyIncorrectData = "erreur".data(using: .utf8)
+    static var weatherCorrectData: Data {
+        let bundle = Bundle(for: FakeResponseData.self)
+        let url = bundle.url(forResource: "Weather", withExtension: "json")!
+        let data = try! Data(contentsOf: url)
+        return data
+    }
+    
+    static let IncorrectData = "erreur".data(using: .utf8)
+    
     
     class CurrencyError: Error{}
     static let error = CurrencyError()

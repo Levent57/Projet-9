@@ -16,15 +16,15 @@ class CurrencyServiceTest: XCTestCase {
         
     let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
     
-    let excpectation = XCTestExpectation(description: "Wait for queue change.")
+    let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrecy { (success, currency) in
             
             XCTAssertFalse(success)
             XCTAssertNil(currency)
-            excpectation.fulfill()
+            expectation.fulfill()
         }
         
-        wait(for: [excpectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 0.01)
         
     }
     
@@ -32,15 +32,15 @@ class CurrencyServiceTest: XCTestCase {
         
         let currencyService = CurrencyService(session: URLSessionFake(data: nil, response: nil, error: nil))
         
-        let excpectation = XCTestExpectation(description: "Wait for queue change.")
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrecy { (success, currency) in
             
             XCTAssertFalse(success)
             XCTAssertNil(currency)
-            excpectation.fulfill()
+            expectation.fulfill()
         }
         
-        wait(for: [excpectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 0.01)
         
     }
     
@@ -48,31 +48,31 @@ class CurrencyServiceTest: XCTestCase {
         
         let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyCorrectData, response: FakeResponseData.responseKO, error: nil))
         
-        let excpectation = XCTestExpectation(description: "Wait for queue change.")
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrecy { (success, currency) in
             
             XCTAssertFalse(success)
             XCTAssertNil(currency)
-            excpectation.fulfill()
+            expectation.fulfill()
         }
         
-        wait(for: [excpectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 0.01)
         
     }
     
     func testGetCurrencyShouldPostFailedCallbackIfIncorrectData() {
 
-        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.currencyIncorrectData, response: FakeResponseData.responseOK, error: nil))
+        let currencyService = CurrencyService(session: URLSessionFake(data: FakeResponseData.IncorrectData, response: FakeResponseData.responseOK, error: nil))
         
-        let excpectation = XCTestExpectation(description: "Wait for queue change.")
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
         currencyService.getCurrecy { (success, currency) in
             
             XCTAssertFalse(success)
             XCTAssertNil(currency)
-            excpectation.fulfill()
+            expectation.fulfill()
         }
         
-        wait(for: [excpectation], timeout: 0.01)
+        wait(for: [expectation], timeout: 0.01)
         
     }
     

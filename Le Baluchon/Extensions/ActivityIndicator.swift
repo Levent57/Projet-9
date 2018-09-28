@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 //extension UIViewController {
-class ActivityController {
+class ActivityIndicator {
 
-    static func activityController(activityIndicator: UIActivityIndicatorView, button: UIButton, showActivityIndicator: Bool){
+    static func activityIndicator(activityIndicator: UIActivityIndicatorView, button: UIButton, showActivityIndicator: Bool){
         activityIndicator.isHidden = !showActivityIndicator
         button.isHidden = showActivityIndicator
     }

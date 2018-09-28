@@ -22,7 +22,7 @@ class CurrencyViewController: UIViewController {
     }
     
     @IBAction func changeAction(){
-        ActivityController.activityController(activityIndicator: activityIndicator, button: ConvertButton, showActivityIndicator: true)
+        ActivityIndicator.activityIndicator(activityIndicator: activityIndicator, button: ConvertButton, showActivityIndicator: true)
         change()
     }
     
@@ -30,7 +30,7 @@ class CurrencyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ActivityController.activityController(activityIndicator: activityIndicator, button: ConvertButton, showActivityIndicator: false)
+        ActivityIndicator.activityIndicator(activityIndicator: activityIndicator, button: ConvertButton, showActivityIndicator: false)
 
     }
     
@@ -45,7 +45,7 @@ class CurrencyViewController: UIViewController {
     
     private func change(){
         currencyService.getCurrecy { (success, currency) in
-             ActivityController.activityController(activityIndicator: self.activityIndicator, button: self.ConvertButton, showActivityIndicator: false)
+             ActivityIndicator.activityIndicator(activityIndicator: self.activityIndicator, button: self.ConvertButton, showActivityIndicator: false)
             if success, let currency = currency {
                 self.updateDisplay(currency: currency)
             } else {
