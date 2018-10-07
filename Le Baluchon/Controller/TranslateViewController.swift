@@ -9,11 +9,25 @@
 import UIKit
 
 class TranslateViewController: UIViewController {
+    
+    
+    @IBOutlet weak var TranslationTextField: UITextField!
+    
+    @IBOutlet weak var TranslatedText: UILabel!
+    
+    @IBAction func TranslateButton(_ sender: UIButton) {
+        translate()
+    }
 
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        TranslationTextField.resignFirstResponder()
+    }
+    
+    let translationService = TranslationService()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +35,31 @@ class TranslateViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    let pairsLanguage = "Français -> Anglais"
+ 
+    
+    private func translate() {
+        guard let textToTranslate = TranslationTextField.text, !textToTranslate.isEmpty else {
+            self.showErrorPopup(title: "erreur", message: "Pas de contenu")
+            return
+        }
+        translationService.getTranslation(textToTranslate: textToTranslate, pairsLanguage: pairsLanguage) { (success, translatedText) in
+            print(success)
+            if success, let translatedText = translatedText?.translatedText {
+                print(translatedText)
+                self.updateDisplay(textTranslated: translatedText)
+            } else {
+            self.showErrorPopup(title: "erreur", message: "pas de reseau")
+            }
+        }
     }
-    */
-
+    
+    private func updateDisplay(textTranslated: String?) {
+        TranslatedText.text = textTranslated
+    }
+    
+    
+    
+    
+    
 }

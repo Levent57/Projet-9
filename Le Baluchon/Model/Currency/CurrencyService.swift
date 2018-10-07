@@ -30,21 +30,16 @@ class CurrencyService {
                     callback(false, nil)
                     return
                 }
-                
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     callback(false, nil)
                     return
                 }
-
-            
                 guard let responseJSON = try? JSONDecoder().decode(Currency.self, from: data) else {
                     callback(false, nil)
                     return
                 }
-                
                 callback(true, responseJSON)
             }
-            
         }
         task?.resume()
     }

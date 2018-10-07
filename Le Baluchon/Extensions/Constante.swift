@@ -16,9 +16,17 @@ class Constante {
         static let format = "&format=json"
         static let temp = " and u='c'"
         static let request = "select item.condition from weather.forecast where woeid ="
+    }
     
-//    https://query.yahooapis.com/v1/public/yql?q=select%20item.condition%20from%20weather.forecast%20where%20woeid%20%3D%202487889&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
-//    select item.condition from weather.forecast where woeid = 2487889
+    struct TranslationAPI {
+        
+        static let baseURL = "https://translation.googleapis.com/language/translate/v2?"
+        static let key = "key=AIzaSyCuum7i7Byx4LEA6AK6AiiwnAeqqwXlO_M"
+        static let format = "&format=text"
+        static let source = "&source="
+        static let target = "&target="
+        static let textToTranslateParameter = "&q="
     }
 
+    
 }

@@ -41,20 +41,22 @@ class WeatherViewController: UIViewController {
     
     func getNewyorkWeather() {
         weatherService.getWeather(codeLocation: CodeLocation.newyork) { (success, weather) in
+            print(success)
             if success, let weather = weather {
                 self.updateDisplay(temperature: weather.query.results.channel.item.condition.temp, codeConditions: weather.query.results.channel.item.condition.code, temperatureLabel: self.newyorkLabel, IconConditions: self.newyorkConditionIcon)
             } else {
-                self.showErrorPopup(title: "erreur", message: "erreur")
+                self.showErrorPopup(title: "erreur", message: "ny")
             }
         }
     }
     
     func getParisWeather() {
         weatherService.getWeather(codeLocation: CodeLocation.paris) { (success, weather) in
+            print(success)
             if success, let weather = weather {
                 self.updateDisplay(temperature: weather.query.results.channel.item.condition.temp, codeConditions: weather.query.results.channel.item.condition.code, temperatureLabel: self.parisLabel, IconConditions: self.parisConditionIcon)
             } else {
-                self.showErrorPopup(title: "erreur", message: "erreur")
+                self.showErrorPopup(title: "erreur", message: "paris")
             }
         }
     }

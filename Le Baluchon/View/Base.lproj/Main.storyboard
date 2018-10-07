@@ -211,9 +211,13 @@
                                 <state key="normal" title="Translate">
                                     <color key="titleColor" red="0.91250497102737427" green="0.4796488881111145" blue="0.49144423007965088" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="TranslateButton:" destination="jmU-MG-n9x" eventType="touchUpInside" id="4S2-j5-Vth"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.35499775410000001" green="0.41768753530000002" blue="0.50197285410000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ba5-9G-HGu" firstAttribute="bottom" secondItem="qjh-M6-572" secondAttribute="bottom" constant="77" id="GOn-Q2-STK"/>
                             <constraint firstItem="zVw-to-f6i" firstAttribute="top" secondItem="sd7-4E-hAP" secondAttribute="bottom" constant="50" id="Lzy-ld-5oJ"/>
@@ -226,10 +230,22 @@
                             <constraint firstItem="zVw-to-f6i" firstAttribute="leading" secondItem="ba5-9G-HGu" secondAttribute="leading" constant="10" id="v25-mg-CPS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ba5-9G-HGu"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="hh2-i5-g3T" appends="YES" id="yOd-gh-BKB"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Translation" id="yL9-KY-xte"/>
+                    <connections>
+                        <outlet property="TranslatedText" destination="VY1-GH-8cH" id="SqC-Co-Dz1"/>
+                        <outlet property="TranslationTextField" destination="gic-lM-Mv1" id="0g2-4K-t9l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPU-gv-KO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="hh2-i5-g3T">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="jmU-MG-n9x" id="gFv-uQ-0ia"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1035" y="-100.35211267605634"/>
         </scene>
@@ -283,7 +299,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cll-Z1-mO7">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cll-Z1-mO7">
                                         <rect key="frame" x="235" y="0.0" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Cll-Z1-mO7" secondAttribute="height" multiplier="1:1" id="20u-qT-ODZ"/>
@@ -316,7 +332,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LFb-7X-1X8">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LFb-7X-1X8">
                                         <rect key="frame" x="235" y="0.0" width="120" height="120"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="LFb-7X-1X8" secondAttribute="height" multiplier="1:1" id="eXi-IB-8VP"/>

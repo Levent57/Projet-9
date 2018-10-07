@@ -18,18 +18,6 @@ class WeatherSetting {
         return String(format: "%.0f", temp) + "°C"
     }
     
-    
-//    var isCelsius: Bool?
-//
-//    func converter(temp: Int) -> Int? {
-//        if isCelsius! {
-//            return (((temp-32) * 5)/9)
-//        }
-//        return temp
-//    }
-    
-    
-    
     static func getWeatherIconSettings(weatherCodes: String?) -> String {
         
         guard let weatherCodes = weatherCodes, let weatherCode = Int(weatherCodes) else { return "EmptyImage" }
