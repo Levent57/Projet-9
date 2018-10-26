@@ -22,6 +22,8 @@
 		2BD6D1F52140AE27004366D4 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6D1F42140AE27004366D4 /* WeatherViewController.swift */; };
 		2BD6D1F72140AFB2004366D4 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6D1F62140AFB2004366D4 /* CurrencyViewController.swift */; };
 		2BD6D1F92140AFC0004366D4 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BD6D1F82140AFC0004366D4 /* TranslateViewController.swift */; };
+		2BE4F8F4216A2D2A00A56C17 /* TranslationServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F8F3216A2D2A00A56C17 /* TranslationServiceTest.swift */; };
+		2BE4F8F6216A2D3E00A56C17 /* Translation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2BE4F8F5216A2D3E00A56C17 /* Translation.json */; };
 		2BE9984C2140A5DC00B9180B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE9984B2140A5DC00B9180B /* AppDelegate.swift */; };
 		2BE998512140A5DC00B9180B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BE9984F2140A5DC00B9180B /* Main.storyboard */; };
 		2BE998532140A5DD00B9180B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE998522140A5DD00B9180B /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		2BD6D1F42140AE27004366D4 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		2BD6D1F62140AFB2004366D4 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		2BD6D1F82140AFC0004366D4 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
+		2BE4F8F3216A2D2A00A56C17 /* TranslationServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceTest.swift; sourceTree = "<group>"; };
+		2BE4F8F5216A2D3E00A56C17 /* Translation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Translation.json; sourceTree = "<group>"; };
 		2BE998482140A5DC00B9180B /* Le Baluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Le Baluchon.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE9984B2140A5DC00B9180B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2BE998502140A5DC00B9180B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +120,15 @@
 				2B54D7232160F14C008F9D9A /* Translation.swift */,
 			);
 			path = Translation;
+			sourceTree = "<group>";
+		};
+		2BE4F8F2216A2D0C00A56C17 /* TranslationTests */ = {
+			isa = PBXGroup;
+			children = (
+				2BE4F8F3216A2D2A00A56C17 /* TranslationServiceTest.swift */,
+				2BE4F8F5216A2D3E00A56C17 /* Translation.json */,
+			);
+			path = TranslationTests;
 			sourceTree = "<group>";
 		};
 		2BE9983F2140A5DC00B9180B = {
@@ -192,6 +205,7 @@
 			children = (
 				2BFC1EB421547480003B8760 /* FakeResponseData.swift */,
 				2BFC1EB6215474AA003B8760 /* URLSessionFake.swift */,
+				2BE4F8F2216A2D0C00A56C17 /* TranslationTests */,
 				2B54D719215CEDBF008F9D9A /* WeatherTests */,
 				2BFC1EB8215474DB003B8760 /* CurrencyTests */,
 				2BFC1EAE21547445003B8760 /* Info.plist */,
@@ -322,6 +336,7 @@
 			files = (
 				2B54D71D215CEDF8008F9D9A /* Weather.json in Resources */,
 				2BFC1EBA215474F5003B8760 /* Currency.json in Resources */,
+				2BE4F8F6216A2D3E00A56C17 /* Translation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +371,7 @@
 				2B54D71B215CEDE7008F9D9A /* WeatherServiceTest.swift in Sources */,
 				2BFC1EB521547480003B8760 /* FakeResponseData.swift in Sources */,
 				2BFC1EB7215474AA003B8760 /* URLSessionFake.swift in Sources */,
+				2BE4F8F4216A2D2A00A56C17 /* TranslationServiceTest.swift in Sources */,
 				2BFC1EBC21547551003B8760 /* CurrencyServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

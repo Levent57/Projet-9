@@ -57,7 +57,6 @@ class WeatherService {
         let request = Constante.YahooWeatherAPI.request + codeLocation + Constante.YahooWeatherAPI.temp
         guard let requestEncoded = request.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return "" }
         let urlRequest = Constante.YahooWeatherAPI.baseURL + requestEncoded + Constante.YahooWeatherAPI.format
-        print(urlRequest)
         return urlRequest
     }
 

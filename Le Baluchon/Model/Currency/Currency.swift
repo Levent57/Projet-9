@@ -22,7 +22,7 @@ struct Currency: Decodable {
 
 extension Currency {
     
-    static func calculateCurrency(baseCurrency: Double , rateTarget: Double) -> Double{
+    static func calculateCurrency(baseCurrency: Double , rateTarget: Double) -> Double {
         let currency = baseCurrency * rateTarget
         
         return currency
@@ -36,3 +36,5 @@ struct Rate: Decodable {
         case usd = "USD"
     }
 }
+
+

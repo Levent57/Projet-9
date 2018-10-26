@@ -84,6 +84,28 @@ class WeatherServiceTest: XCTestCase {
         
     }
     
+    func testGetWeatherShouldPostSuccessCallbackIfCorrectDataAndNoError() {
+        
+        let weatherService = WeatherService(weatherSession: URLSessionFake(data: FakeResponseData.weatherCorrectData, response: FakeResponseData.responseOK, error: nil))
+        
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        weatherService.getWeather(codeLocation: CodeLocation.paris) { (success, DataWeather) in
+            
+            let temperature = "13"
+            let codeCondition = "26"
+            
+            XCTAssertTrue(success)
+            XCTAssertNotNil(DataWeather)
+            
+            XCTAssertEqual(DataWeather?.query.results.channel.item.condition.temp, temperature)
+            XCTAssertEqual(DataWeather?.query.results.channel.item.condition.code, codeCondition)
+            expectation.fulfill()
+            
+        }
+        
+        wait(for: [expectation], timeout: 0.01)
+        
+    }
     
     
     

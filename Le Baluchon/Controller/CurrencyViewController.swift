@@ -12,8 +12,8 @@ class CurrencyViewController: UIViewController {
     
     @IBOutlet weak var currencyTextField: UITextField!
     @IBOutlet weak var currencyResultLabel: UILabel!
-    @IBOutlet weak var ConvertButton: UIButton!
-    @IBOutlet weak var EuroCurrencyLabel: UILabel!
+    @IBOutlet weak var convertButton: UIButton!
+    @IBOutlet weak var euroCurrencyLabel: UILabel!
     @IBOutlet weak var targetCurrencyLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -22,7 +22,7 @@ class CurrencyViewController: UIViewController {
     }
     
     @IBAction func changeAction(){
-        ActivityIndicator.activityIndicator(activityIndicator: activityIndicator, button: ConvertButton, showActivityIndicator: true)
+        ActivityIndicator.activityIndicator(activityIndicator: activityIndicator, button: convertButton, showActivityIndicator: true)
         change()
     }
     
@@ -30,7 +30,7 @@ class CurrencyViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ActivityIndicator.activityIndicator(activityIndicator: activityIndicator, button: ConvertButton, showActivityIndicator: false)
+        ActivityIndicator.activityIndicator(activityIndicator: activityIndicator, button: convertButton, showActivityIndicator: false)
 
     }
     
@@ -45,7 +45,7 @@ class CurrencyViewController: UIViewController {
     
     private func change(){
         currencyService.getCurrecy { (success, currency) in
-             ActivityIndicator.activityIndicator(activityIndicator: self.activityIndicator, button: self.ConvertButton, showActivityIndicator: false)
+             ActivityIndicator.activityIndicator(activityIndicator: self.activityIndicator, button: self.convertButton, showActivityIndicator: false)
             if success, let currency = currency {
                 self.updateDisplay(currency: currency)
             } else {
@@ -77,5 +77,6 @@ class CurrencyViewController: UIViewController {
 
         currencyResultLabel.text = String(format: "%.3f", currencyResult)
     }
+
     
 }

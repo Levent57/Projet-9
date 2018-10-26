@@ -35,13 +35,14 @@ class WeatherViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        self.activityIndicator.isHidden = false
         getNewyorkWeather()
         getParisWeather()
     }
     
     func getNewyorkWeather() {
         weatherService.getWeather(codeLocation: CodeLocation.newyork) { (success, weather) in
-            print(success)
+            self.activityIndicator.isHidden = true
             if success, let weather = weather {
                 self.updateDisplay(temperature: weather.query.results.channel.item.condition.temp, codeConditions: weather.query.results.channel.item.condition.code, temperatureLabel: self.newyorkLabel, IconConditions: self.newyorkConditionIcon)
             } else {
@@ -52,7 +53,7 @@ class WeatherViewController: UIViewController {
     
     func getParisWeather() {
         weatherService.getWeather(codeLocation: CodeLocation.paris) { (success, weather) in
-            print(success)
+            self.activityIndicator.isHidden = true
             if success, let weather = weather {
                 self.updateDisplay(temperature: weather.query.results.channel.item.condition.temp, codeConditions: weather.query.results.channel.item.condition.code, temperatureLabel: self.parisLabel, IconConditions: self.parisConditionIcon)
             } else {

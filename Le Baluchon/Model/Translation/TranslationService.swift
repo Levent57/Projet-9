@@ -8,8 +8,15 @@
 
 import Foundation
 
+enum Language: String {
+    case fr = "fr"
+    case en = "en"
+    case de = "de"
+    case tr = "tr"
+    case error
+}
+
 class TranslationService {
-    
 
     init(translationSession: URLSession = URLSession(configuration: .default)) {
         self.translationSession = translationSession
@@ -17,12 +24,9 @@ class TranslationService {
     
     private var translationSession : URLSession
     
-    func getTranslation(textToTranslate: String, pairsLanguage: String, callback: @escaping (Bool, TranslatedText?) -> Void) {
+    func getTranslation(source: Language, target: Language, textToTranslate: String, callback: @escaping (Bool, TranslatedText?) -> Void) {
         
-        guard let url = getURL(textToTranslate: textToTranslate, pairsLanguage: pairsLanguage) else {
-            callback(false, nil)
-            return
-        }
+        guard let url = URL(string: getURL(textToTranslate: textToTranslate, source: source, target: target)) else { return }
         
         var task : URLSessionDataTask?
        
@@ -52,35 +56,15 @@ class TranslationService {
     }
     
     
-    func getURL(textToTranslate: String, pairsLanguage: String ) -> URL? {
+    func getURL(textToTranslate: String, source: Language, target: Language ) -> String {
 
-        let sourceAndTarget = setSourceAndTarget(pairsLanguage: pairsLanguage)
-        guard let source = sourceAndTarget.source, let target = sourceAndTarget.target else { return nil }
-        print(source)
-        print(target)
         guard let textTotranslateInURL = textToTranslate.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
-            return nil
+            return ""
         }
-        let request = Constante.TranslationAPI.key + Constante.TranslationAPI.source + source + Constante.TranslationAPI.target + target + Constante.TranslationAPI.format + Constante.TranslationAPI.textToTranslateParameter
-        guard let requestEncoded = request.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return nil }
+        let request = Constante.TranslationAPI.key + Constante.TranslationAPI.source + source.rawValue + Constante.TranslationAPI.target + target.rawValue + Constante.TranslationAPI.format + Constante.TranslationAPI.textToTranslateParameter
+        guard let requestEncoded = request.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return "" }
         let urlRequest = Constante.TranslationAPI.baseURL + requestEncoded + textTotranslateInURL
-        let url = URL(string: urlRequest)
-        return url
-    }
-//    https://www.googleapis.com/language/translate/v2?key=AIzaSyCuum7i7Byx4LEA6AK6AiiwnAeqqwXlO_M&source=fr&target=en&format=text&q=C'est perdu
-    
-    func setSourceAndTarget(pairsLanguage: String) -> (source: String?, target: String?) {
-        
-        switch pairsLanguage {
-        case "Français -> Anglais":
-            let source = "fr"
-            let target = "en"
-            return (source, target)
-        default:
-            let source: String? = nil
-            let target: String? = nil
-            return (source, target)
-        }
+        return urlRequest
     }
     
 }

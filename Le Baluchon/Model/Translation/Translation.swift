@@ -20,3 +20,5 @@ struct Translations: Decodable {
 struct TranslatedText: Decodable {
     let translatedText: String?
 }
+
+
