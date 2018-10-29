@@ -29,12 +29,14 @@ class TranslateViewController: UIViewController {
 
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         translationTextField.resignFirstResponder()
+        targetLanguageTextField.resignFirstResponder()
     }
     
     let translationService = TranslationService()
     let pickerView = UIPickerView()
-    let pickerDataArray = [Language.fr.rawValue, Language.de.rawValue, Language.en.rawValue, Language.tr.rawValue]
-    var pickerViewLanguagesSelection = Language.fr.rawValue
+    let pickerDataArray = [Language.fr.rawValue, Language.de.rawValue, Language.en.rawValue, Language.tr.rawValue, Language.es.rawValue]
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,8 @@ class TranslateViewController: UIViewController {
         pickerView.dataSource = self
         pickerView.delegate = self
         targetLanguageTextField.inputView = pickerView
+        targetLanguageTextField.text = Language.en.rawValue
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +58,7 @@ class TranslateViewController: UIViewController {
             self.showErrorPopup(title: "erreur", message: "Pas de contenu")
             return
         }
-        translationService.getTranslation(source: .fr, target: .en, textToTranslate: textToTranslate) { (success, translatedText) in
+        translationService.getTranslation(source: .fr, target: Language(rawValue: targetLanguageTextField!.text!)!, textToTranslate: textToTranslate) { (success, translatedText) in
             ActivityIndicator.activityIndicator(activityIndicator: self.activityIndicator, button: self.translateButton, showActivityIndicator: false)
             if success, let translatedText = translatedText?.translatedText {
                 self.updateDisplay(textTranslated: translatedText)
@@ -82,6 +86,10 @@ extension TranslateViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerDataArray[row]
+    }
+    
+    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        targetLanguageTextField.text = pickerDataArray[row]
     }
 
 }

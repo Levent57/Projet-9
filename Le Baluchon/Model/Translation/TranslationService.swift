@@ -9,10 +9,10 @@
 import Foundation
 
 enum Language: String {
-    case fr = "fr"
     case en = "en"
     case de = "de"
     case tr = "tr"
+    case es = "es"
     case error
 }
 
