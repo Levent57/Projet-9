@@ -10,20 +10,18 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     
+    //MARK: - Outlets
     @IBOutlet weak var newyorkLabel: UILabel!
-    
     @IBOutlet weak var parisLabel: UILabel!
-    
     @IBOutlet weak var newyorkConditionIcon: UIImageView!
-    
     @IBOutlet weak var parisConditionIcon: UIImageView!
-    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    
+    //MARK: Vars
     let weatherService = WeatherService()
     let weatherSetting = WeatherSetting()
     
+    //MARK: View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.activityIndicator.isHidden = true
@@ -40,13 +38,15 @@ class WeatherViewController: UIViewController {
         getParisWeather()
     }
     
+    //MARK: Class methods
+    
     func getNewyorkWeather() {
         weatherService.getWeather(codeLocation: CodeLocation.newyork) { (success, weather) in
             self.activityIndicator.isHidden = true
             if success, let weather = weather {
                 self.updateDisplay(temperature: weather.query.results.channel.item.condition.temp, codeConditions: weather.query.results.channel.item.condition.code, temperatureLabel: self.newyorkLabel, IconConditions: self.newyorkConditionIcon)
             } else {
-                self.showErrorPopup(title: "erreur", message: "ny")
+                self.showErrorPopup(title: "erreur", message: "Probléme réseau !")
             }
         }
     }
@@ -57,23 +57,21 @@ class WeatherViewController: UIViewController {
             if success, let weather = weather {
                 self.updateDisplay(temperature: weather.query.results.channel.item.condition.temp, codeConditions: weather.query.results.channel.item.condition.code, temperatureLabel: self.parisLabel, IconConditions: self.parisConditionIcon)
             } else {
-                self.showErrorPopup(title: "erreur", message: "paris")
+                self.showErrorPopup(title: "erreur", message: "Probléme réseau !")
             }
         }
     }
     
     func updateDisplay (temperature: String?, codeConditions:String?, temperatureLabel: UILabel, IconConditions: UIImageView) {
-
+        // Upadate display temperature
         if let temperature = temperature {
-
             let temp = weatherSetting.convert(temp: temperature)
             temperatureLabel.text = temp
         } else {
-            temperatureLabel.text = "erreur"
+            temperatureLabel.text = "Temperature indisponible!"
         }
-        
+        // Update display conditions icons
         if let codeConditions = codeConditions {
-
             IconConditions.image = UIImage(imageLiteralResourceName: WeatherSetting.getWeatherIconSettings(weatherCodes: codeConditions))
         } else {
             IconConditions.image = #imageLiteral(resourceName: "EmptyImage")

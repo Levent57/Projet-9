@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-//extension UIViewController {
 class ActivityIndicator {
 
+    // Allows to toogle activity indicator with button, when true the method hide button and show acticity indicator
+    
     static func activityIndicator(activityIndicator: UIActivityIndicatorView, button: UIButton, showActivityIndicator: Bool){
         activityIndicator.isHidden = !showActivityIndicator
         button.isHidden = showActivityIndicator

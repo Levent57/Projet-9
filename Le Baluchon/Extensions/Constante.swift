@@ -10,6 +10,7 @@ import Foundation
 
 class Constante {
     
+    //Constants API for Yahoo Weather
     struct YahooWeatherAPI {
     
         static let baseURL = "https://query.yahooapis.com/v1/public/yql?q="
@@ -18,6 +19,7 @@ class Constante {
         static let request = "select item.condition from weather.forecast where woeid ="
     }
     
+    //Constants API for Google Translate
     struct TranslationAPI {
         
         static let baseURL = "https://translation.googleapis.com/language/translate/v2?"

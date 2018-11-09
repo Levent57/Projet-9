@@ -22,6 +22,7 @@ struct Currency: Decodable {
 
 extension Currency {
     
+    // Calcul the currency from base currency & rate target
     static func calculateCurrency(baseCurrency: Double , rateTarget: Double) -> Double {
         let currency = baseCurrency * rateTarget
         

@@ -10,16 +10,16 @@ import Foundation
 
 class WeatherSetting {
 
+    // MARK: Methods
+    
+    // Convert temperature in ° with a precision of 0 decimal number
     func convert(temp: String) -> String? {
-        
         guard let temp = Double(temp) else { return nil }
-
-        
         return String(format: "%.0f", temp) + "°C"
     }
     
+    // Get icon weather name depending of code weather conditions from API. If no code available, an EmptyImage name is returned
     static func getWeatherIconSettings(weatherCodes: String?) -> String {
-        
         guard let weatherCodes = weatherCodes, let weatherCode = Int(weatherCodes) else { return "EmptyImage" }
         switch weatherCode {
         case 0:
